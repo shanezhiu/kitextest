@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package idl.protobuffer.example.v1;
+
+option go_package="kitexidltest/kitex_gen/example/v1";
+
+import "idl/protobuffer/base/packageb/v1/exampleb.proto";
+import "idl/protobuffer/base/packagea/v1/examplea.proto";
+
+
+service Combine {
+  rpc Example(ExampleRequest) returns (ExampleResponse);
+
+  rpc ExampleA(idl.protobuffer.base.packagea.v1.ExampleA) returns (ExampleResponse);
+}
+
+message ExampleRequest {
+  idl.protobuffer.base.packagea.v1.ExampleA example_a = 1;
+  idl.protobuffer.base.packageb.v1.ExampleB example_b = 2;
+}
+
+message ExampleResponse {
+  idl.protobuffer.base.packagea.v1.ExampleA example_a = 1;
+  idl.protobuffer.base.packageb.v1.ExampleB example_b = 2;
+}

@@ -1,0 +1,7 @@
+syntax="proto3";
+
+package idl.protobuffer.base.packagea.v1;
+
+option go_package="kitexidltest/kitex_gen/base/packagea/v1";
+
+message ExampleA {}
